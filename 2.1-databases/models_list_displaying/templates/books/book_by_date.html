@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ book.name }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <!-- Ссылка на каталог -->
+        <div class="header">
+            <h1><a href="{% url 'books_view' %}">Каталог</a></h1>
+        </div>
+
+        <!-- Информация о книге -->
+        <h2><a href="{% url 'book_by_date' book.pub_date %}">{{ book.name }}</a></h2>
+        <p>Автор: {{ book.author }}</p>
+        <p>Дата публикации: {{ book.pub_date|date:"Y-m-d" }}</p>
+
+        <!-- Навигация между книгами -->
+        <div class="navigation mt-4 d-flex justify-content-start" style="gap: 10px;">
+        {% if previous_book %}
+            <a href="{% url 'book_by_date' previous_book.pub_date %}" class="btn btn-primary">
+                {{ previous_book.pub_date|date:"Y-m-d" }}
+            </a>
+        {% endif %}
+
+        {% if next_book %}
+            <a href="{% url 'book_by_date' next_book.pub_date %}" class="btn btn-primary">
+                {{ next_book.pub_date|date:"Y-m-d" }}
+            </a>
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}
