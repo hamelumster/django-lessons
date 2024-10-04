@@ -73,11 +73,9 @@ WSGI_APPLICATION = 'website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'netology_orm_migrations',
+        'NAME': 'netology_orm',
         'HOST': '127.0.0.1',
         'PORT': '5432',
-        'USER': 'postgres',
-        'PASSWORD': 'ваш пароль',
     }
 }
 
@@ -133,4 +131,3 @@ try:
 except ImportError:
     pass
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
