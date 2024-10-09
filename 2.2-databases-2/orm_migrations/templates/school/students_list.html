@@ -11,7 +11,7 @@
         <strong>Преподаватели:</strong>
         <ul>
       {% for teacher in student.teachers.all %}
-        <li>{{ student.teacher.name }}: {{ student.teacher.subject }}</li>
+        <li>{{ teacher.name }}: {{ teacher.subject }}</li>
         {% empty %}
         <li>Нет преподавателей</li>
       {% endfor %}
